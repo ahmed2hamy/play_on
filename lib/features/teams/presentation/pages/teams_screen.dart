@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:play_on_task/constants/constants.dart';
@@ -67,7 +68,8 @@ class PlayerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.network(_player.profileImage?.url ?? kNetworkImagePlaceholder),
+        CachedNetworkImage(
+            imageUrl: _player.profileImage?.url ?? kNetworkImagePlaceholder),
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),

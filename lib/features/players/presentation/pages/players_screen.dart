@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:play_on_task/constants/constants.dart';
@@ -18,11 +19,6 @@ class PlayersScreen extends StatefulWidget {
 class _PlayersScreenState extends State<PlayersScreen> {
   final ScrollController _listController = ScrollController();
   final TextEditingController _searchController = TextEditingController();
-  List<Player> _playerList = [];
-  List<Player> _showList = [];
-
-  // FilterType type = FilterType.ByNameAZ;
-  String _search = '';
   bool _isSearch = false;
 
   @override
@@ -47,117 +43,20 @@ class _PlayersScreenState extends State<PlayersScreen> {
       ),
       body: Column(
         children: [
-          if (_isSearch)
-            Card(
-              margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(40.0)),
-              elevation: 2,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(40.0),
-                ),
-                child: TextField(
-                  controller: _searchController,
-                  cursorColor: kSecondaryColor,
-                  decoration: InputDecoration(
-                    focusColor: kSecondaryColor,
-                    hoverColor: kSecondaryColor,
-                    hintText: 'Search',
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      color: kSecondaryColor,
-                    ),
-                    suffixIcon: IconButton(
-                      icon: const Icon(
-                        Icons.close,
-                        color: kSecondaryColor,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _search = '';
-                          _isSearch = false;
-                          _searchController.text = '';
-                          // _filterUser('');
-                        });
-                      },
-                    ),
-                    border: InputBorder.none,
-                    errorBorder: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    disabledBorder: InputBorder.none,
-                    focusedErrorBorder: InputBorder.none,
-                  ),
-                ),
-              ),
-            ),
+          _isSearch
+              ? SearchBar(searchController: _searchController)
+              : const SizedBox(),
           const BudgetWidget(),
-          Container(
-            height: 0.5,
-            color: kBorderColor,
-          ),
+          const Separator(height: 0.5),
           Expanded(
             child: Stack(
               children: [
-                ListView.separated(
-                  controller: _listController,
-                  itemBuilder: (context, i) =>
-                      PlayerWidget(player: _showList[i]),
-                  separatorBuilder: (context, i) => const Divider(),
-                  itemCount: _showList.length,
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Card(
-                    margin: const EdgeInsets.only(bottom: 10.0),
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                    ),
-                    child: Container(
-                      height: 36,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(18.0),
-                        color: Colors.white,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              '${_showList.length} RESULTS SORTED BY ${"_getSortedName()"}',
-                              style: const TextStyle(
-                                fontSize: 12.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            Container(
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 8.0),
-                              width: 1,
-                              height: 36,
-                              color: kBorderColor,
-                            ),
-                            const Icon(
-                              Icons.sort,
-                              size: 18.0,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                PlayersScreenBodyWidget(listController: _listController),
+                const SortResultsWidget(),
               ],
             ),
           ),
-          Container(
-            height: 0.5,
-            color: kBorderColor,
-          ),
+          const Separator(height: 0.5),
           const BottomDetailsBar(),
         ],
       ),
@@ -181,7 +80,7 @@ class _PlayersScreenState extends State<PlayersScreen> {
       ),
       IconButton(
         onPressed: () {},
-        icon: const Icon(Icons.filter_alt_sharp),
+        icon: const Icon(Icons.filter_alt_outlined),
       ),
       IconButton(
         onPressed: () {},
@@ -191,52 +90,51 @@ class _PlayersScreenState extends State<PlayersScreen> {
   }
 }
 
-class BottomDetailsBar extends StatelessWidget {
-  const BottomDetailsBar({
+class SearchBar extends StatelessWidget {
+  final TextEditingController searchController;
+
+  const SearchBar({
     Key? key,
+    required this.searchController,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 10.0,
-        vertical: 15,
-      ),
-      child: Row(
-        children: [
-          const Icon(Icons.keyboard_arrow_down),
-          const SizedBox(
-            width: 12.0,
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.0)),
+      elevation: 2,
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(40.0),
+        ),
+        child: TextField(
+          controller: searchController,
+          cursorColor: kSecondaryColor,
+          decoration: InputDecoration(
+            focusColor: kSecondaryColor,
+            hoverColor: kSecondaryColor,
+            hintText: 'Search',
+            prefixIcon: const Icon(
+              Icons.search,
+              color: kSecondaryColor,
+            ),
+            suffixIcon: IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.close,
+                color: kSecondaryColor,
+              ),
+            ),
+            border: InputBorder.none,
+            errorBorder: InputBorder.none,
+            enabledBorder: InputBorder.none,
+            focusedBorder: InputBorder.none,
+            disabledBorder: InputBorder.none,
+            focusedErrorBorder: InputBorder.none,
           ),
-          const Text(
-            'Hide list',
-            style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
-          ),
-          const Spacer(),
-          const Text(
-            'TO PICK:',
-            style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w300),
-          ),
-          const Text(
-            '1/6',
-            style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w600),
-          ),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 6.0),
-            width: 1.0,
-            height: 16.0,
-            color: kBorderColor,
-          ),
-          const Text(
-            'AVERAGE:',
-            style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w300),
-          ),
-          const Text(
-            '\$0.0M',
-            style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w600),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -289,8 +187,11 @@ class BudgetWidget extends StatelessWidget {
 }
 
 class PlayersScreenBodyWidget extends StatelessWidget {
+  final ScrollController listController;
+
   const PlayersScreenBodyWidget({
     Key? key,
+    required this.listController,
   }) : super(key: key);
 
   @override
@@ -308,6 +209,7 @@ class PlayersScreenBodyWidget extends StatelessWidget {
           List<Player?> players = state.playersModel.players ?? [];
 
           return ListView.separated(
+              controller: listController,
               itemCount: players.length,
               separatorBuilder: (_, __) => const Separator(),
               itemBuilder: (_, index) {
@@ -351,8 +253,8 @@ class PlayerWidget extends StatelessWidget {
   Widget _buildLeadingWidget() {
     return CircleAvatar(
       radius: 38,
-      child:
-          Image.network(player.profileImage?.url ?? kNetworkImagePlaceholder),
+      child: CachedNetworkImage(
+          imageUrl: player.profileImage?.url ?? kNetworkImagePlaceholder),
     );
   }
 
@@ -419,6 +321,107 @@ class PlayerWidget extends StatelessWidget {
   }
 }
 
+class SortResultsWidget extends StatelessWidget {
+  const SortResultsWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Card(
+        margin: const EdgeInsets.only(bottom: 10.0),
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18.0),
+        ),
+        child: Container(
+          height: 36,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(18.0),
+            color: Colors.white,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  '20 RESULTS SORTED BY NAME',
+                  style: TextStyle(
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                  width: 1,
+                  height: 36,
+                  color: kBorderColor,
+                ),
+                const Icon(
+                  Icons.sort,
+                  size: 18.0,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BottomDetailsBar extends StatelessWidget {
+  const BottomDetailsBar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 10.0,
+        vertical: 15,
+      ),
+      child: Row(
+        children: [
+          const Icon(Icons.keyboard_arrow_down),
+          const SizedBox(
+            width: 12.0,
+          ),
+          const Text(
+            'Hide list',
+            style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500),
+          ),
+          const Spacer(),
+          const Text(
+            'TO PICK:',
+            style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w300),
+          ),
+          const Text(
+            '1/6',
+            style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w600),
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 6.0),
+            width: 1.0,
+            height: 16.0,
+            color: kBorderColor,
+          ),
+          const Text(
+            'AVERAGE:',
+            style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w300),
+          ),
+          const Text(
+            '\$0.0M',
+            style: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w600),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class GoUpTheListFAB extends StatelessWidget {
   final ScrollController listController;
 
@@ -429,30 +432,25 @@ class GoUpTheListFAB extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 2,
-      margin: const EdgeInsets.only(bottom: 50),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18.0),
-      ),
-      child: Container(
-        width: 36,
-        height: 36,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.circle,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 45),
+      child: ElevatedButton(
+        onPressed: () => listController.animateTo(
+          listController.position.minScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.fastOutSlowIn,
         ),
-        child: InkWell(
-          onTap: () => listController.animateTo(
-            listController.position.minScrollExtent,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.fastOutSlowIn,
-          ),
-          child: const Center(
-            child: Icon(
-              Icons.arrow_upward,
-              size: 18.0,
-            ),
+        style: ElevatedButton.styleFrom(
+          shape: const CircleBorder(),
+          fixedSize: const Size.fromRadius(20),
+          elevation: 2,
+          primary: Colors.white,
+        ),
+        child: const Center(
+          child: Icon(
+            Icons.arrow_upward,
+            color: Colors.black,
+            size: 18.0,
           ),
         ),
       ),

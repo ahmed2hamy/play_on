@@ -19,6 +19,7 @@ dependencies:
   #UI Layer
   flutter_bloc: ^7.3.3
   flutter_svg: ^0.23.0+1
+  cached_network_image: ^3.1.0+1
 
   #Domain
   dartz: ^0.10.0
