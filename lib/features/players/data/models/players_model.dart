@@ -88,6 +88,7 @@ class Player {
     this.externalId,
     this.profileImage,
     this.miscImage,
+    this.isPositiveSentiment = true,
   });
 
   int? id;
@@ -130,6 +131,8 @@ class Player {
   String? externalId;
   PlayOnImage? profileImage;
   PlayOnImage? miscImage;
+
+  bool isPositiveSentiment;
 
   factory Player.fromJson(Map<String, dynamic> json) => Player(
         id: json["id"],

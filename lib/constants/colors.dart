@@ -5,8 +5,9 @@ const Color kSecondaryColor = Color(0xff00CA45);
 const Color kTeamsScreenBackgroundColor = Color(0xffF2F3F5);
 const Color kTeamCardBackgroundColor = Color(0xff95A4BC);
 const Color kPLayerPositionTextColor = Color(0xff797f86);
-const Color kRatingBlankColor = Color(0xffD1D6DE);
+const Color kBlankColor = Color(0xffD1D6DE);
 const Color kBorderColor = Color(0xffE0E4E8);
+const Color kButtonBorderColor = Color(0xffAFBFC9);
 
 final MaterialColor kPrimarySwatch =
     MaterialColor(kPrimaryColor.hashCode, _primaryColorMap);

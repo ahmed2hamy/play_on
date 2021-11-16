@@ -13,6 +13,7 @@ class PlayersCubit extends Cubit<PlayersState> {
         super(PlayersInitialState());
 
   Future getPlayers() async {
+    emit(PlayersLoadingState());
     final res = await _getPlayersUseCase.call(NoParams());
 
     res.fold(

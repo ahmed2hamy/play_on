@@ -4,19 +4,35 @@ const TextStyle kWhiteTextStyle = TextStyle(
   color: Colors.white,
 );
 
-const TextStyle kBlackTextStyle = TextStyle(
-  color: Colors.black,
+const TextStyle kDefaultTextStyle = TextStyle();
+
+const TextStyle kSmallTextStyle = TextStyle(
+  fontSize: 11,
+);
+
+const TextStyle kSmallBigWeightTextStyle = TextStyle(
+  fontSize: 11,
+  fontWeight: FontWeight.w600,
+);
+
+const TextStyle kSmallLightWeightTextStyle = TextStyle(
+  fontSize: 11,
+  fontWeight: FontWeight.w300,
+);
+
+const TextStyle kMediumTextStyle = TextStyle(
+  fontSize: 15.0,
+  fontWeight: FontWeight.w500,
 );
 
 const TextStyle kTitleTextStyle = TextStyle(
-  color: Colors.black,
   fontWeight: FontWeight.bold,
   fontSize: 15.0,
   wordSpacing: 1.0,
 );
 
-const TextStyle kSmallBlackTextStyle = TextStyle(
-  color: Colors.black,
+const TextStyle kSmallGreenTextStyle = TextStyle(
+  color: kSecondaryColor,
   fontSize: 11,
 );
 

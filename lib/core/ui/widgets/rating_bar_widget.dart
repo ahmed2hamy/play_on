@@ -34,7 +34,7 @@ class RatingBarWidget extends StatelessWidget {
       height: 9,
       margin: const EdgeInsets.symmetric(horizontal: 1),
       decoration: BoxDecoration(
-        color: isActive ? kSecondaryColor : kRatingBlankColor,
+        color: isActive ? kSecondaryColor : kBlankColor,
         borderRadius: BorderRadius.circular(2),
       ),
     );
