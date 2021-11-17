@@ -48,14 +48,13 @@ class PlayerWidget extends StatelessWidget {
                 icon: const Icon(Icons.star_border),
               ),
               Text(
-                player.positionAbbreviation?.toUpperCase() ?? "",
+                positionAbbreviationValues
+                        .reverse[player.positionAbbreviation] ??
+                    "DR",
                 style: kPlayerPositionTextStyle,
               ),
               const SizedBox(width: 5),
-              Text(
-                player.displayName ?? "",
-                style: kDefaultTextStyle,
-              ),
+              Text(player.displayName ?? ""),
             ],
           ),
           const SizedBox(height: 20),

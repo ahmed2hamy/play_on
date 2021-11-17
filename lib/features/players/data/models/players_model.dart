@@ -15,7 +15,7 @@ class PlayersModel {
     this.meta,
   });
 
-  List<Player?>? players;
+  List<Player>? players;
   Meta? meta;
 
   factory PlayersModel.fromJson(Map<String, dynamic> json) => PlayersModel(
@@ -25,7 +25,7 @@ class PlayersModel {
       );
 
   Map<String, dynamic> toJson() => {
-        "players": List<Player>.from(players?.map((x) => x?.toJson()) ?? []),
+        "players": List<Player>.from(players?.map((x) => x.toJson()) ?? []),
         "meta": meta?.toJson(),
       };
 }
@@ -52,9 +52,9 @@ class Player {
     this.firstName,
     this.lastName,
     this.teamName,
-    this.position,
+    this.position = Position.driver,
     this.positionId,
-    this.positionAbbreviation,
+    this.positionAbbreviation = PositionAbbreviation.dr,
     this.price,
     this.currentPriceChangeInfo,
     this.status,
@@ -95,9 +95,9 @@ class Player {
   String? firstName;
   String? lastName;
   String? teamName;
-  String? position;
+  Position position;
   int? positionId;
-  String? positionAbbreviation;
+  PositionAbbreviation positionAbbreviation;
   double? price;
   CurrentPriceChangeInfo? currentPriceChangeInfo;
   dynamic status;
@@ -139,9 +139,11 @@ class Player {
         firstName: json["first_name"],
         lastName: json["last_name"],
         teamName: json["team_name"],
-        position: json["position"],
+        position: positionValues.map[json["position"]] ?? Position.driver,
         positionId: json["position_id"],
-        positionAbbreviation: json["position_abbreviation"],
+        positionAbbreviation:
+            positionAbbreviationValues.map[json["position_abbreviation"]] ??
+                PositionAbbreviation.dr,
         price: json["price"].toDouble(),
         currentPriceChangeInfo:
             CurrentPriceChangeInfo.fromJson(json["current_price_change_info"]),
@@ -189,9 +191,10 @@ class Player {
         "first_name": firstName,
         "last_name": lastName,
         "team_name": teamName,
-        "position": position,
+        "position": positionValues.reverse[position],
         "position_id": positionId,
-        "position_abbreviation": positionAbbreviation,
+        "position_abbreviation":
+            positionAbbreviationValues.reverse[positionAbbreviation],
         "price": price,
         "current_price_change_info": currentPriceChangeInfo?.toJson(),
         "status": status,
@@ -230,6 +233,20 @@ class Player {
         "misc_image": miscImage?.toJson(),
       };
 }
+
+enum Position { driver, constructor }
+
+final positionValues = EnumValues({
+  "Driver": Position.driver,
+  "Constructor": Position.constructor,
+});
+
+enum PositionAbbreviation { dr, cr }
+
+final positionAbbreviationValues = EnumValues({
+  "DR": PositionAbbreviation.dr,
+  "CR": PositionAbbreviation.cr,
+});
 
 class ConstructorData {
   ConstructorData({
@@ -436,4 +453,16 @@ class SeasonPrice {
         "game_period_id": gamePeriodId,
         "price": price,
       };
+}
+
+class EnumValues<T> {
+  Map<String, T> map;
+  Map<T, String> reverseMap = {};
+
+  EnumValues(this.map);
+
+  Map<T, String> get reverse {
+    reverseMap = map.map((k, v) => MapEntry(v, k));
+    return reverseMap;
+  }
 }

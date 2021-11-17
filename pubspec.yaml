@@ -12,7 +12,6 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.4
 
-
   #Service Locator
   get_it: ^7.2.0
 
@@ -20,19 +19,18 @@ dependencies:
   flutter_bloc: ^7.3.3
   flutter_svg: ^0.23.0+1
   cached_network_image: ^3.1.0+1
+  google_fonts: ^2.1.0
 
   #Domain
   dartz: ^0.10.0
   equatable: ^2.0.3
 
   #Data
-  connectivity_plus: ^2.0.2
+  connectivity_plus: ^2.0.3
 
   #Data - Remote
-  url_launcher: ^6.0.12
-  dio: ^4.0.1
-  firebase_core: ^1.10.0
-  firebase_auth: ^3.2.0
+  url_launcher: ^6.0.13
+  dio: ^4.0.3
 
 dev_dependencies:
   flutter_lints: ^1.0.4

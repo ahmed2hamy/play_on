@@ -13,7 +13,6 @@ class Dialogs {
     );
 
     WidgetsBinding.instance?.addPostFrameCallback((_) {
-      print("SnackBar: [${text ?? Strings.defaultErrorMessage}]");
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     });
   }

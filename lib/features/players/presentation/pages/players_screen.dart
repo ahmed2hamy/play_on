@@ -39,7 +39,10 @@ class _PlayersScreenState extends State<PlayersScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(Strings.selectPlayer),
+        title: const Text(
+          Strings.selectPlayer,
+          style: kTitleTextStyle,
+        ),
         actions: _buildAppBarActions(),
       ),
       body: Column(
@@ -70,7 +73,7 @@ class _PlayersScreenState extends State<PlayersScreen> {
       IconButton(
         onPressed: () {
           setState(() {
-            _isSearch = true;
+            _isSearch = !_isSearch;
           });
         },
         icon: const Icon(Icons.search),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:play_on_task/constants/constants.dart';
 import 'package:play_on_task/features/players/presentation/manager/players_cubit.dart';
-import 'package:play_on_task/features/players/presentation/pages/players_screen.dart';
+import 'package:play_on_task/features/teams/presentation/pages/teams_screen.dart';
 import 'package:play_on_task/injection_container.dart' as di;
 
 void main() async {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: Strings.appName,
         theme: kAppThemeData,
-        home: const PlayersScreen(),
+        home: const TeamsScreen(),
       ),
     );
   }
