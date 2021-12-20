@@ -9,6 +9,7 @@ const Color kBlankColor = Color(0xffD1D6DE);
 const Color kBorderColor = Color(0xffE0E4E8);
 const Color kButtonBorderColor = Color(0xffAFBFC9);
 const Color kShadowColor = Color(0x0000003c);
+const Color kDropShadowColor = Color(0x0646A619);
 
 final MaterialColor kPrimarySwatch =
     MaterialColor(kPrimaryColor.hashCode, _primaryColorMap);

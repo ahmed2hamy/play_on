@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:play_on_task/constants/constants.dart';
 import 'package:play_on_task/features/teams/domain/entities/team_item.dart';
+import 'package:play_on_task/features/teams/presentation/widgets/actions_menu_item.dart';
 import 'package:play_on_task/features/teams/presentation/widgets/players_column_widget.dart';
 
 class TeamWidget extends StatelessWidget {
@@ -79,11 +80,45 @@ class TeamWidget extends StatelessWidget {
               child: Container(
                 width: double.maxFinite,
                 alignment: Alignment.centerRight,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.more_vert_outlined,
+                child: PopupMenuButton(
+                  icon: const Icon(Icons.more_vert_outlined),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                    side: const BorderSide(color: kBlankColor),
                   ),
+                  elevation: 4,
+                  itemBuilder: (context) {
+                    return [
+                      PopupMenuItem(
+                        onTap: _renameTeam,
+                        child: const ActionsMenuItem(
+                          title: Strings.rename,
+                          iconData: Icons.edit_outlined,
+                        ),
+                      ),
+                      PopupMenuItem(
+                        onTap: _recreateTeam,
+                        child: const ActionsMenuItem(
+                          title: Strings.recreate,
+                          iconData: Icons.refresh_outlined,
+                        ),
+                      ),
+                      PopupMenuItem(
+                        onTap: _replicateTeam,
+                        child: const ActionsMenuItem(
+                          title: Strings.replicate,
+                          iconData: Icons.content_copy_outlined,
+                        ),
+                      ),
+                      PopupMenuItem(
+                        onTap: _deleteTeam,
+                        child: const ActionsMenuItem(
+                          title: Strings.delete,
+                          iconData: Icons.delete_outline,
+                        ),
+                      ),
+                    ];
+                  },
                 ),
               ),
             )
@@ -92,4 +127,12 @@ class TeamWidget extends StatelessWidget {
       ),
     );
   }
+
+  void _renameTeam() {}
+
+  void _recreateTeam() {}
+
+  void _replicateTeam() {}
+
+  void _deleteTeam() {}
 }

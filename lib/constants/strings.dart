@@ -17,6 +17,10 @@ class Strings {
   static const String createTeam = "Create Team";
   static const String teams = "Teams";
   static const String team = "Team";
+  static const String rename = "Rename";
+  static const String recreate = "Recreate";
+  static const String replicate = "Replicate";
+  static const String delete = "Delete";
 
   //Players screen
   static const String selectPlayer = "Select Player";
