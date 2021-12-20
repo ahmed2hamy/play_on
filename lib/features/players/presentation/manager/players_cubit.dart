@@ -5,16 +5,16 @@ import 'package:play_on_task/features/players/data/models/players_model.dart';
 import 'package:play_on_task/features/players/domain/use_cases/get_players_use_case.dart';
 
 class PlayersCubit extends Cubit<PlayersState> {
-  final GetPlayersUseCase _getPlayersUseCase;
+  final GetAllPlayersUseCase _getAllPlayersUseCase;
 
   PlayersCubit({
-    required GetPlayersUseCase getPlayersUseCase,
-  })  : _getPlayersUseCase = getPlayersUseCase,
+    required GetAllPlayersUseCase getAllPlayersUseCase,
+  })  : _getAllPlayersUseCase = getAllPlayersUseCase,
         super(PlayersInitialState());
 
   Future getPlayers() async {
     emit(PlayersLoadingState());
-    final res = await _getPlayersUseCase.call(NoParams());
+    final res = await _getAllPlayersUseCase.call(NoParams());
 
     res.fold(
       (failure) => emit(PlayersErrorState(failure.message)),

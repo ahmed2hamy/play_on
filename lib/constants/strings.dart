@@ -16,6 +16,7 @@ class Strings {
   //Teams screen
   static const String createTeam = "Create Team";
   static const String teams = "Teams";
+  static const String team = "Team";
 
   //Players screen
   static const String selectPlayer = "Select Player";

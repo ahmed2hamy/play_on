@@ -10,18 +10,18 @@ const TextStyle kSmallWhiteTextStyle = TextStyle(
 
 const TextStyle kSmallTextStyle = TextStyle(
   color: Colors.black,
-  fontSize: 11,
+  fontSize: 10,
 );
 
 const TextStyle kSmallBigWeightTextStyle = TextStyle(
   color: Colors.black,
-  fontSize: 11,
+  fontSize: 10,
   fontWeight: FontWeight.w600,
 );
 
 const TextStyle kSmallLightWeightTextStyle = TextStyle(
   color: Colors.black,
-  fontSize: 11,
+  fontSize: 10,
   fontWeight: FontWeight.w300,
 );
 
@@ -40,7 +40,7 @@ const TextStyle kTitleTextStyle = TextStyle(
 
 const TextStyle kSmallGreenTextStyle = TextStyle(
   color: kSecondaryColor,
-  fontSize: 11,
+  fontSize: 10.0,
 );
 
 const TextStyle kPlayerPositionTextStyle = TextStyle(

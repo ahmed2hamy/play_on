@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => di.sl<PlayersCubit>()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: Strings.appName,
         theme: kAppThemeData,
         home: const TeamsScreen(),

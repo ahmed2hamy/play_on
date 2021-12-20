@@ -30,10 +30,10 @@ Future<void> init() async {
 
 void _initPLayersFeature() {
   // Bloc
-  sl.registerLazySingleton(() => PlayersCubit(getPlayersUseCase: sl()));
+  sl.registerLazySingleton(() => PlayersCubit(getAllPlayersUseCase: sl()));
 
   // Use cases
-  sl.registerFactory(() => GetPlayersUseCase(repository: sl()));
+  sl.registerFactory(() => GetAllPlayersUseCase(repository: sl()));
 
   // Repository
   sl.registerFactory<PlayersRepository>(
