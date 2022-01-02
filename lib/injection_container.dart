@@ -3,11 +3,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:play_on_task/core/data/network/network_info.dart';
-import 'package:play_on_task/features/players/data/data_sources/players_remote_data_source.dart';
-import 'package:play_on_task/features/players/data/repositories/players_repository_impl.dart';
-import 'package:play_on_task/features/players/domain/repositories/players_repository.dart';
-import 'package:play_on_task/features/players/domain/use_cases/get_players_use_case.dart';
-import 'package:play_on_task/features/players/presentation/manager/players_cubit.dart';
+import 'package:play_on_task/layers/data/data_sources/remote/players_remote_data_source.dart';
+import 'package:play_on_task/layers/data/repositories/players_repository_impl.dart';
+import 'package:play_on_task/layers/domain/repositories/players_repository.dart';
+import 'package:play_on_task/layers/domain/use_cases/get_players_use_case.dart';
+import 'package:play_on_task/layers/presentation/manager/players_cubit.dart';
 
 final sl = GetIt.instance;
 

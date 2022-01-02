@@ -7,3 +7,5 @@ part 'images.dart';
 part 'strings.dart';
 part 'styles.dart';
 part 'theme.dart';
+
+const int teamsMaxCount = 3;
