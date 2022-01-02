@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PLayerWidgetClipper extends CustomClipper<Path> {
+class PlayerWidgetClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final path = Path();
@@ -11,5 +11,5 @@ class PLayerWidgetClipper extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(PLayerWidgetClipper oldClipper) => false;
+  bool shouldReclip(PlayerWidgetClipper oldClipper) => false;
 }
