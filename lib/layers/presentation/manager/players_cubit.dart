@@ -43,7 +43,7 @@ class PlayersLoadedState extends PlayersState {
   const PlayersLoadedState(this.playersModel);
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [playersModel];
 }
 
 class PlayersErrorState extends PlayersState {
@@ -52,5 +52,5 @@ class PlayersErrorState extends PlayersState {
   const PlayersErrorState(this.errorMessage);
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [errorMessage];
 }
