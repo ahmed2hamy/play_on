@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:play_on_task/constants/constants.dart';
+import 'package:play_on/constants/constants.dart';
 
 class PlusButton extends StatelessWidget {
   const PlusButton({

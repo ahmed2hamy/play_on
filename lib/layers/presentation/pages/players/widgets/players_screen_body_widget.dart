@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:play_on_task/core/presentation/widgets/app_loading_widget.dart';
-import 'package:play_on_task/core/presentation/widgets/dialogs.dart';
-import 'package:play_on_task/layers/data/models/players_model.dart';
-import 'package:play_on_task/layers/presentation/manager/players_cubit.dart';
-import 'package:play_on_task/layers/presentation/pages/players/widgets/player_widget.dart';
-import 'package:play_on_task/layers/presentation/pages/players/widgets/separator.dart';
+import 'package:play_on/core/presentation/widgets/app_loading_widget.dart';
+import 'package:play_on/core/presentation/widgets/dialogs.dart';
+import 'package:play_on/layers/data/models/players_model.dart';
+import 'package:play_on/layers/presentation/manager/players_cubit.dart';
+import 'package:play_on/layers/presentation/pages/players/widgets/player_widget.dart';
+import 'package:play_on/layers/presentation/pages/players/widgets/separator.dart';
 
 class PlayersScreenBodyWidget extends StatelessWidget {
   final ScrollController listController;

@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:play_on_task/constants/constants.dart';
-import 'package:play_on_task/core/data/network/network_helper.dart';
-import 'package:play_on_task/core/domain/error/failures.dart';
-import 'package:play_on_task/layers/data/models/players_model.dart';
+import 'package:play_on/constants/constants.dart';
+import 'package:play_on/core/data/network/network_helper.dart';
+import 'package:play_on/core/domain/error/failures.dart';
+import 'package:play_on/layers/data/models/players_model.dart';
 
 abstract class PlayersRemoteDataSource {
   Future<Either<Failure, PlayersModel>> getRemotePlayers();

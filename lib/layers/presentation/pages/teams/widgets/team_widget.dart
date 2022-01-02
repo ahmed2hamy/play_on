@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:play_on_task/constants/constants.dart';
-import 'package:play_on_task/layers/domain/entities/team_item.dart';
-import 'package:play_on_task/layers/presentation/pages/teams/widgets/actions_menu_item.dart';
-import 'package:play_on_task/layers/presentation/pages/teams/widgets/players_column_widget.dart';
+import 'package:play_on/constants/constants.dart';
+import 'package:play_on/layers/domain/entities/team_item.dart';
+import 'package:play_on/layers/presentation/pages/teams/widgets/actions_menu_item.dart';
+import 'package:play_on/layers/presentation/pages/teams/widgets/players_column_widget.dart';
 
 class TeamWidget extends StatelessWidget {
   const TeamWidget({

@@ -1,6 +1,6 @@
 {
-    "name": "play_on_task",
-    "short_name": "play_on_task",
+    "name": "play_on",
+    "short_name": "play_on",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

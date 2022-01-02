@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:play_on_task/core/domain/usecases/usecase.dart';
-import 'package:play_on_task/layers/data/models/players_model.dart';
-import 'package:play_on_task/layers/domain/use_cases/get_players_use_case.dart';
+import 'package:play_on/core/domain/usecases/usecase.dart';
+import 'package:play_on/layers/data/models/players_model.dart';
+import 'package:play_on/layers/domain/use_cases/get_players_use_case.dart';
 
 class PlayersCubit extends Cubit<PlayersState> {
   final GetAllPlayersUseCase _getAllPlayersUseCase;

@@ -1,4 +1,4 @@
-package com.example.play_on_task
+package com.example.play_on
 
 import io.flutter.embedding.android.FlutterActivity
 

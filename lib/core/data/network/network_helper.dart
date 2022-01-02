@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:play_on_task/constants/constants.dart';
+import 'package:play_on/constants/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NetworkHelper {

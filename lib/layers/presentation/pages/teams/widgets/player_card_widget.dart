@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:play_on_task/constants/constants.dart';
-import 'package:play_on_task/layers/data/models/players_model.dart';
-import 'package:play_on_task/layers/presentation/pages/players/widgets/sentiment_widget.dart';
-import 'package:play_on_task/layers/presentation/pages/teams/widgets/player_team_abbreviation_widget.dart';
+import 'package:play_on/constants/constants.dart';
+import 'package:play_on/layers/data/models/players_model.dart';
+import 'package:play_on/layers/presentation/pages/players/widgets/sentiment_widget.dart';
+import 'package:play_on/layers/presentation/pages/teams/widgets/player_team_abbreviation_widget.dart';
 
 class PlayerCardWidget extends StatelessWidget {
   final Player player;

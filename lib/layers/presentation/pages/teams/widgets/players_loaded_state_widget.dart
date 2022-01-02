@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:play_on_task/constants/constants.dart';
-import 'package:play_on_task/layers/data/models/players_model.dart';
-import 'package:play_on_task/layers/domain/entities/team_item.dart';
-import 'package:play_on_task/layers/presentation/pages/teams/widgets/create_new_team_button.dart';
-import 'package:play_on_task/layers/presentation/pages/teams/widgets/team_widget.dart';
+import 'package:play_on/constants/constants.dart';
+import 'package:play_on/layers/data/models/players_model.dart';
+import 'package:play_on/layers/domain/entities/team_item.dart';
+import 'package:play_on/layers/presentation/pages/teams/widgets/create_new_team_button.dart';
+import 'package:play_on/layers/presentation/pages/teams/widgets/team_widget.dart';
 
 class PlayersLoadedStateWidget extends StatefulWidget {
   final List<Player> allPlayers;

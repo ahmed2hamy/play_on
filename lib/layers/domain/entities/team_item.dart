@@ -1,4 +1,4 @@
-import 'package:play_on_task/layers/data/models/players_model.dart';
+import 'package:play_on/layers/data/models/players_model.dart';
 
 class TeamItem {
   final int teamNumber;

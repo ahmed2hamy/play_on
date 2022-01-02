@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(play_on_task LANGUAGES CXX)
+project(play_on LANGUAGES CXX)
 
-set(BINARY_NAME "play_on_task")
+set(BINARY_NAME "play_on")
 
 cmake_policy(SET CMP0063 NEW)
 

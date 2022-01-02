@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:play_on_task/constants/constants.dart';
-import 'package:play_on_task/core/presentation/helpers/app_navigator.dart';
-import 'package:play_on_task/layers/data/models/players_model.dart';
-import 'package:play_on_task/layers/presentation/pages/players/players_screen.dart';
-import 'package:play_on_task/layers/presentation/pages/teams/widgets/players_loaded_state_widget.dart';
+import 'package:play_on/constants/constants.dart';
+import 'package:play_on/core/presentation/helpers/app_navigator.dart';
+import 'package:play_on/layers/data/models/players_model.dart';
+import 'package:play_on/layers/presentation/pages/players/players_screen.dart';
+import 'package:play_on/layers/presentation/pages/teams/widgets/players_loaded_state_widget.dart';
 
 class TeamsScreen extends StatefulWidget {
   final List<Player> allPlayers;

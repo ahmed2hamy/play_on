@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:play_on_task/layers/data/models/players_model.dart';
-import 'package:play_on_task/layers/presentation/pages/teams/widgets/player_card_widget.dart';
+import 'package:play_on/layers/data/models/players_model.dart';
+import 'package:play_on/layers/presentation/pages/teams/widgets/player_card_widget.dart';
 
 class PlayersColumnWidget extends StatelessWidget {
   final List<Player> drivers;

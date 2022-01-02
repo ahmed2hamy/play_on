@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:play_on_task/constants/constants.dart';
-import 'package:play_on_task/core/presentation/helpers/app_navigator.dart';
-import 'package:play_on_task/core/presentation/helpers/screen_info.dart';
-import 'package:play_on_task/core/presentation/widgets/dialogs.dart';
-import 'package:play_on_task/layers/presentation/manager/players_cubit.dart';
-import 'package:play_on_task/layers/presentation/pages/teams/teams_screen.dart';
+import 'package:play_on/constants/constants.dart';
+import 'package:play_on/core/presentation/helpers/app_navigator.dart';
+import 'package:play_on/core/presentation/helpers/screen_info.dart';
+import 'package:play_on/core/presentation/widgets/dialogs.dart';
+import 'package:play_on/layers/presentation/manager/players_cubit.dart';
+import 'package:play_on/layers/presentation/pages/teams/teams_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

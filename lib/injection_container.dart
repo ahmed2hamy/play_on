@@ -2,13 +2,13 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:play_on_task/core/data/network/network_info.dart';
-import 'package:play_on_task/layers/data/data_sources/remote/players_remote_data_source.dart';
-import 'package:play_on_task/layers/data/repositories/players_repository_impl.dart';
-import 'package:play_on_task/layers/domain/repositories/players_repository.dart';
-import 'package:play_on_task/layers/domain/use_cases/get_players_use_case.dart';
-import 'package:play_on_task/layers/presentation/manager/players_cubit.dart';
-import 'package:play_on_task/layers/presentation/manager/teams_cubit.dart';
+import 'package:play_on/core/data/network/network_info.dart';
+import 'package:play_on/layers/data/data_sources/remote/players_remote_data_source.dart';
+import 'package:play_on/layers/data/repositories/players_repository_impl.dart';
+import 'package:play_on/layers/domain/repositories/players_repository.dart';
+import 'package:play_on/layers/domain/use_cases/get_players_use_case.dart';
+import 'package:play_on/layers/presentation/manager/players_cubit.dart';
+import 'package:play_on/layers/presentation/manager/teams_cubit.dart';
 
 final sl = GetIt.instance;
 

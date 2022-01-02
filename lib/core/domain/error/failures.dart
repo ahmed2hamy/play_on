@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:play_on_task/constants/constants.dart';
+import 'package:play_on/constants/constants.dart';
 
 abstract class Failure extends Equatable {
   final String message;

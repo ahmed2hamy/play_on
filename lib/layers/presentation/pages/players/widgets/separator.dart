@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:play_on_task/constants/constants.dart';
+import 'package:play_on/constants/constants.dart';
 
 class Separator extends StatelessWidget {
   final double height;
