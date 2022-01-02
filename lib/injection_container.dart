@@ -8,6 +8,7 @@ import 'package:play_on_task/layers/data/repositories/players_repository_impl.da
 import 'package:play_on_task/layers/domain/repositories/players_repository.dart';
 import 'package:play_on_task/layers/domain/use_cases/get_players_use_case.dart';
 import 'package:play_on_task/layers/presentation/manager/players_cubit.dart';
+import 'package:play_on_task/layers/presentation/manager/teams_cubit.dart';
 
 final sl = GetIt.instance;
 
@@ -15,22 +16,9 @@ Future<void> init() async {
   // Services init
   WidgetsFlutterBinding.ensureInitialized();
 
-  //! Features
-
-  //Players
-  _initPLayersFeature();
-
-  //! Core
-  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
-
-  //! External
-  sl.registerLazySingleton(() => Connectivity());
-  sl.registerLazySingleton(() => Dio());
-}
-
-void _initPLayersFeature() {
   // Bloc
   sl.registerLazySingleton(() => PlayersCubit(getAllPlayersUseCase: sl()));
+  sl.registerLazySingleton(() => TeamsCubit());
 
   // Use cases
   sl.registerFactory(() => GetAllPlayersUseCase(repository: sl()));
@@ -42,4 +30,11 @@ void _initPLayersFeature() {
   // Data sources
   sl.registerFactory<PlayersRemoteDataSource>(
       () => PlayersRemoteDataSourceImpl(dio: sl()));
+
+  //! Core
+  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
+
+  //! External
+  sl.registerLazySingleton(() => Connectivity());
+  sl.registerLazySingleton(() => Dio());
 }
