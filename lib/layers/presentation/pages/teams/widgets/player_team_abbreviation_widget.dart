@@ -4,10 +4,9 @@ import 'package:play_on/layers/data/models/players_model.dart';
 import 'package:play_on/layers/presentation/pages/teams/widgets/player_widget_clipper.dart';
 
 class PlayerTeamAbbreviationWidget extends StatelessWidget {
-  final Player player;
+  final Player? player;
 
-  const PlayerTeamAbbreviationWidget({Key? key, required this.player})
-      : super(key: key);
+  const PlayerTeamAbbreviationWidget({Key? key, this.player}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ class PlayerTeamAbbreviationWidget extends StatelessWidget {
           color: kTeamCardBackgroundColor,
           padding: const EdgeInsets.all(5.0),
           child: Text(
-            player.teamAbbreviation ?? "",
+            player?.teamAbbreviation ?? "",
             style: kSmallWhiteTextStyle,
           ),
         ),

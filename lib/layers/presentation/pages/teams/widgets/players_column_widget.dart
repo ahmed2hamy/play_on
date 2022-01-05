@@ -4,12 +4,12 @@ import 'package:play_on/layers/presentation/pages/teams/widgets/player_card_widg
 
 class PlayersColumnWidget extends StatelessWidget {
   final List<Player> drivers;
-  final Player constructor;
+  final Player? constructor;
 
   const PlayersColumnWidget({
     Key? key,
     required this.drivers,
-    required this.constructor,
+    this.constructor,
   }) : super(key: key);
 
   @override

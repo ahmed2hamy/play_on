@@ -10,6 +10,8 @@ const Color kBorderColor = Color(0xffE0E4E8);
 const Color kButtonBorderColor = Color(0xffAFBFC9);
 const Color kShadowColor = Color(0x0000003c);
 const Color kDropShadowColor = Color(0x0646A619);
+const Color kDialogTitleColor = Color(0xff5F6C84);
+const Color kHintTextColor = Color(0xffBABABA);
 
 final MaterialColor kPrimarySwatch =
     MaterialColor(kPrimaryColor.hashCode, _primaryColorMap);

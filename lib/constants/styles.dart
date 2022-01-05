@@ -48,6 +48,16 @@ const TextStyle kPlayerPositionTextStyle = TextStyle(
   fontSize: 10.0,
 );
 
+const TextStyle kDialogTitleTextStyle = TextStyle(
+  color: kDialogTitleColor,
+  fontSize: 11.0,
+);
+
+const TextStyle kHintTextStyle = TextStyle(
+  color: kHintTextColor,
+  fontSize: 14.0,
+);
+
 TextStyle kKanitTextStyle = GoogleFonts.kanit(
   fontWeight: FontWeight.w500,
   color: Colors.white,

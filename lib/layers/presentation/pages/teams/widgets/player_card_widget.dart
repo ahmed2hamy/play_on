@@ -6,7 +6,7 @@ import 'package:play_on/layers/presentation/pages/players/widgets/sentiment_widg
 import 'package:play_on/layers/presentation/pages/teams/widgets/player_team_abbreviation_widget.dart';
 
 class PlayerCardWidget extends StatelessWidget {
-  final Player player;
+  final Player? player;
 
   const PlayerCardWidget({
     Key? key,
@@ -15,7 +15,7 @@ class PlayerCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isConstructor = player.position == Position.constructor;
+    bool isConstructor = player?.position == Position.constructor;
 
     return Padding(
       padding: const EdgeInsets.all(12),
@@ -45,14 +45,14 @@ class PlayerCardWidget extends StatelessWidget {
                           ? Align(
                               alignment: Alignment.bottomCenter,
                               child: CachedNetworkImage(
-                                imageUrl: player.profileImage?.url ??
+                                imageUrl: player?.profileImage?.url ??
                                     kNetworkImagePlaceholder,
                                 height: 30,
                                 width: 75,
                               ),
                             )
                           : CachedNetworkImage(
-                              imageUrl: player.profileImage?.url ??
+                              imageUrl: player?.profileImage?.url ??
                                   kNetworkImagePlaceholder,
                               height: 50,
                               width: 50,
@@ -67,13 +67,13 @@ class PlayerCardWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        player.displayName ?? "",
+                        player?.displayName ?? "",
                         style: kSmallBigWeightTextStyle,
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
                         positionAbbreviationValues
-                                .reverse[player.positionAbbreviation] ??
+                                .reverse[player?.positionAbbreviation] ??
                             "DR",
                         style: kPlayerPositionTextStyle,
                       ),

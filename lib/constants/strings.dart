@@ -21,6 +21,12 @@ class Strings {
   static const String recreate = "Recreate";
   static const String replicate = "Replicate";
   static const String delete = "Delete";
+  static const String cancel = "Cancel";
+  static const String validateEmptyTeamName =
+      "Please provide a valid team name";
+  static const String validateTeamNameExists =
+      "This team name already exists please choose another";
+  static const String typeTeamNameHint = "Type team name";
 
   //Players screen
   static const String selectPlayer = "Select Player";

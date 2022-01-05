@@ -3,12 +3,12 @@ import 'package:play_on/constants/constants.dart';
 import 'package:play_on/layers/data/models/players_model.dart';
 
 class SentimentWidget extends StatelessWidget {
+  final Player? player;
+
   const SentimentWidget({
     Key? key,
-    required this.player,
+    this.player,
   }) : super(key: key);
-
-  final Player player;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class SentimentWidget extends StatelessWidget {
       ),
       child: Row(
         children: [
-          player.isPositiveSentiment
+          player?.isPositiveSentiment ?? false
               ? Container(
                   height: 4,
                   width: 16, //Todo: turn to percentage
