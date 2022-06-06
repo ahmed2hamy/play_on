@@ -23,7 +23,7 @@ class PlayerWidget extends StatelessWidget {
         children: [
           _buildLeadingWidget(),
           _buildBodyWidget(),
-          _buildTrailingWidget(),
+          _buildTrailingWidget(context),
         ],
       ),
     );
@@ -101,7 +101,7 @@ class PlayerWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildTrailingWidget() {
+  Widget _buildTrailingWidget(BuildContext context) {
     return Row(
       children: [
         Container(
@@ -119,9 +119,10 @@ class PlayerWidget extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(Icons.arrow_drop_up, color: kSecondaryColor),
-                  Text(
+                children: [
+                  Icon(Icons.arrow_drop_up,
+                      color: Theme.of(context).colorScheme.secondary),
+                  const Text(
                     Strings.dumZeroMil,
                     style: kSmallGreenTextStyle,
                   ),

@@ -22,20 +22,20 @@ class RatingBarWidget extends StatelessWidget {
         shrinkWrap: true,
         itemCount: 5,
         itemBuilder: (_, index) {
-          return _buildBar(isActive: index + 1 <= ratingCount);
-        },
-      ),
-    );
-  }
+          bool isActive = index + 1 <= ratingCount;
 
-  Widget _buildBar({bool isActive = false}) {
-    return Container(
-      width: 3,
-      height: 9,
-      margin: const EdgeInsets.symmetric(horizontal: 1),
-      decoration: BoxDecoration(
-        color: isActive ? kSecondaryColor : kBlankColor,
-        borderRadius: BorderRadius.circular(2),
+          return Container(
+            width: 3,
+            height: 9,
+            margin: const EdgeInsets.symmetric(horizontal: 1),
+            decoration: BoxDecoration(
+              color: isActive
+                  ? Theme.of(context).colorScheme.secondary
+                  : kBlankColor,
+              borderRadius: BorderRadius.circular(2),
+            ),
+          );
+        },
       ),
     );
   }

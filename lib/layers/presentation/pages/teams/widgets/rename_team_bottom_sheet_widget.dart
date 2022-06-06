@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:play_on/constants/constants.dart';
 import 'package:play_on/layers/domain/entities/team_item.dart';
+import 'package:play_on/layers/presentation/manager/rename_team_submit_button_cubit.dart';
 import 'package:play_on/layers/presentation/manager/teams_cubit.dart';
 
 class RenameTeamBottomSheetWidget extends StatefulWidget {
@@ -13,23 +14,20 @@ class RenameTeamBottomSheetWidget extends StatefulWidget {
       : super(key: key);
 
   @override
-  _RenameTeamBottomSheetWidgetState createState() =>
-      _RenameTeamBottomSheetWidgetState();
+  RenameTeamBottomSheetWidgetState createState() =>
+      RenameTeamBottomSheetWidgetState();
 }
 
-class _RenameTeamBottomSheetWidgetState
+class RenameTeamBottomSheetWidgetState
     extends State<RenameTeamBottomSheetWidget> {
   final TextEditingController _editingController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late final TeamItem _team;
-  late String _teamName;
 
   @override
   void initState() {
     super.initState();
     _team = widget.teams[widget.teamIndex];
-
-    _teamName = _team.teamName ?? Strings.team + " ${_team.teamNumber ?? 1}";
   }
 
   @override
@@ -51,24 +49,57 @@ class _RenameTeamBottomSheetWidgetState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                (Strings.rename + " " + _teamName).toUpperCase(),
+                ("${Strings.rename} ${_team.teamName ?? ""}").toUpperCase(),
                 style: kDialogTitleTextStyle,
               ),
               TextFormField(
                 controller: _editingController,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                decoration: InputDecoration(
+                  hintText: Strings.typeTeamNameHint,
+                  hintStyle: kHintTextStyle,
+                  suffixIcon:
+                      BlocBuilder<RenameTeamSubmitButtonCubit, RenameTeamState>(
+                    builder: (context, state) {
+                      return state is SubmitButtonDisabled
+                          ? const SizedBox()
+                          : Icon(
+                              Icons.check,
+                              color: Theme.of(context).colorScheme.secondary,
+                            );
+                    },
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
+                  ),
+                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
+                    context
+                        .read<RenameTeamSubmitButtonCubit>()
+                        .disableSubmitButton();
+
                     return Strings.validateEmptyTeamName;
                   } else if (widget.teams.any(
                       (team) => team.teamName == _editingController.text)) {
+                    context
+                        .read<RenameTeamSubmitButtonCubit>()
+                        .disableSubmitButton();
+
                     return Strings.validateTeamNameExists;
                   }
+                  BlocListener(listener: (context, state) {
+                    if (state is SubmitButtonDisabled) {
+                      context
+                          .read<RenameTeamSubmitButtonCubit>()
+                          .enableSubmitButton();
+                    }
+                  });
+
                   return null;
                 },
-                decoration: const InputDecoration(
-                  hintText: Strings.typeTeamNameHint,
-                  hintStyle: kHintTextStyle,
-                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -78,9 +109,17 @@ class _RenameTeamBottomSheetWidgetState
                     child: const Text(Strings.cancel),
                   ),
                   const SizedBox(width: 10),
-                  ElevatedButton(
-                    onPressed: _renameTeam,
-                    child: const Text(Strings.rename),
+                  BlocBuilder<RenameTeamSubmitButtonCubit, RenameTeamState>(
+                    builder: (context, state) {
+                      return ElevatedButton(
+                        onPressed:
+                            state is SubmitButtonDisabled ? null : _renameTeam,
+                        style: ElevatedButton.styleFrom(
+                          primary: Theme.of(context).colorScheme.secondary,
+                        ),
+                        child: const Text(Strings.rename),
+                      );
+                    },
                   ),
                 ],
               ),

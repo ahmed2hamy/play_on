@@ -39,7 +39,7 @@ const TextStyle kTitleTextStyle = TextStyle(
 );
 
 const TextStyle kSmallGreenTextStyle = TextStyle(
-  color: kSecondaryColor,
+  color: kAccentColor,
   fontSize: 10.0,
 );
 
@@ -64,5 +64,5 @@ TextStyle kKanitTextStyle = GoogleFonts.kanit(
 );
 
 ButtonStyle kTextButtonStyle = TextButton.styleFrom(
-  backgroundColor: kSecondaryColor,
+  backgroundColor: kAccentColor,
 );

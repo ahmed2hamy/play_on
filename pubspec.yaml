@@ -6,36 +6,37 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.14.0 <3.0.0"
+  sdk: ">=2.17.0 <3.0.0"
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.4
+  cupertino_icons: ^1.0.5
 
   #Service Locator
   get_it: ^7.2.0
 
   #UI Layer
   flutter_bloc: ^8.0.1
-  flutter_svg: ^1.0.0
-  cached_network_image: ^3.2.0
-  google_fonts: ^2.2.0
+  flutter_svg: ^1.1.0
+  cached_network_image: ^3.2.1
+  google_fonts: ^3.0.1
 
   #Domain
   dartz: ^0.10.1
   equatable: ^2.0.3
 
   #Data
-  connectivity_plus: ^2.2.0
+  connectivity_plus: ^2.3.2
 
   #Data - Remote
-  url_launcher: ^6.0.17
-  dio: ^4.0.4
+  url_launcher: ^6.1.2
+  dio: ^4.0.6
 
 dev_dependencies:
-  flutter_lints: ^1.0.4
   flutter_test:
     sdk: flutter
+
+  flutter_lints:
 
 flutter:
   uses-material-design: true

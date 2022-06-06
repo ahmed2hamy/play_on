@@ -8,6 +8,7 @@ import 'package:play_on/layers/data/repositories/players_repository_impl.dart';
 import 'package:play_on/layers/domain/repositories/players_repository.dart';
 import 'package:play_on/layers/domain/use_cases/get_players_use_case.dart';
 import 'package:play_on/layers/presentation/manager/players_cubit.dart';
+import 'package:play_on/layers/presentation/manager/rename_team_submit_button_cubit.dart';
 import 'package:play_on/layers/presentation/manager/teams_cubit.dart';
 
 final sl = GetIt.instance;
@@ -17,22 +18,29 @@ Future<void> init() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // Bloc
-  sl.registerLazySingleton(() => PlayersCubit(getAllPlayersUseCase: sl()));
+  sl.registerLazySingleton(() => PlayersCubit(
+        getAllPlayersUseCase: sl<GetAllPlayersUseCase>(),
+      ));
   sl.registerLazySingleton(() => TeamsCubit());
+  sl.registerLazySingleton(() => RenameTeamSubmitButtonCubit());
 
   // Use cases
-  sl.registerFactory(() => GetAllPlayersUseCase(repository: sl()));
+  sl.registerFactory(
+      () => GetAllPlayersUseCase(repository: sl<PlayersRepository>()));
 
   // Repository
-  sl.registerFactory<PlayersRepository>(
-      () => PlayersRepositoryImpl(remoteDataSource: sl(), networkInfo: sl()));
+  sl.registerFactory<PlayersRepository>(() => PlayersRepositoryImpl(
+        remoteDataSource: sl<PlayersRemoteDataSource>(),
+        networkInfo: sl<NetworkInfo>(),
+      ));
 
   // Data sources
   sl.registerFactory<PlayersRemoteDataSource>(
-      () => PlayersRemoteDataSourceImpl(dio: sl()));
+      () => PlayersRemoteDataSourceImpl(dio: sl<Dio>()));
 
   //! Core
-  sl.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(sl()));
+  sl.registerLazySingleton<NetworkInfo>(
+      () => NetworkInfoImpl(sl<Connectivity>()));
 
   //! External
   sl.registerLazySingleton(() => Connectivity());

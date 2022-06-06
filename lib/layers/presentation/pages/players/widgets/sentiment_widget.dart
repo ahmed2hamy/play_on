@@ -26,7 +26,7 @@ class SentimentWidget extends StatelessWidget {
                   height: 4,
                   width: 16, //Todo: turn to percentage
                   margin: const EdgeInsets.only(left: 25),
-                  color: kSecondaryColor,
+                  color: Theme.of(context).colorScheme.secondary,
                 )
               : const SizedBox(),
         ],

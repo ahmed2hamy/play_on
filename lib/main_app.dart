@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:play_on/constants/constants.dart';
 import 'package:play_on/injection_container.dart' as di;
 import 'package:play_on/layers/presentation/manager/players_cubit.dart';
+import 'package:play_on/layers/presentation/manager/rename_team_submit_button_cubit.dart';
 import 'package:play_on/layers/presentation/manager/teams_cubit.dart';
 import 'package:play_on/layers/presentation/pages/splash/splash_screen.dart';
 
@@ -15,6 +16,7 @@ class MainApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => di.sl<PlayersCubit>()),
         BlocProvider(create: (_) => di.sl<TeamsCubit>()),
+        BlocProvider(create: (_) => di.sl<RenameTeamSubmitButtonCubit>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

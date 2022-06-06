@@ -51,15 +51,15 @@ class TeamWidget extends StatelessWidget {
                   Container(
                     height: 55,
                     width: 35,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10),
                       ),
-                      color: kPrimaryColor,
+                      color: Theme.of(context).primaryColor,
                     ),
                     child: Center(
                       child: Text(
-                        "T" + team.teamNumber.toString(),
+                        "T${team.teamNumber}",
                         style: kKanitTextStyle,
                       ),
                     ),

@@ -27,9 +27,9 @@ class BudgetWidget extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.only(top: 8.0),
-            child: const LinearProgressIndicator(
+            child: LinearProgressIndicator(
               value: 0.6,
-              color: kSecondaryColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
         ],

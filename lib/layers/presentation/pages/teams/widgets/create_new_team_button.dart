@@ -18,7 +18,7 @@ class CreateNewTeamButton extends StatelessWidget {
         onPressed: addNewTeam,
         style: kTextButtonStyle,
         child: Text(
-          Strings.createTeam + " $teamNumber",
+          "${Strings.createTeam} $teamNumber",
           style: kWhiteTextStyle,
         ),
       ),

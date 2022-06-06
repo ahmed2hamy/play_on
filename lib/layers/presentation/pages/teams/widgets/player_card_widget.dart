@@ -94,9 +94,10 @@ class PlayerCardWidget extends StatelessWidget {
                                     style:
                                         kSmallTextStyle.copyWith(fontSize: 8.0),
                                   ),
-                                  const Icon(
+                                  Icon(
                                     Icons.arrow_drop_up,
-                                    color: kSecondaryColor,
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
                                     size: 6.0,
                                   ),
                                   Text(

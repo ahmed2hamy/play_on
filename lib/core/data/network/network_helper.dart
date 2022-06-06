@@ -16,10 +16,11 @@ class NetworkHelper {
   }
 
   static Future launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
+    Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
     } else {
-      String msg = Strings.couldNotLaunch + " " + url;
+      String msg = "${Strings.couldNotLaunch} $url";
       throw msg;
     }
   }

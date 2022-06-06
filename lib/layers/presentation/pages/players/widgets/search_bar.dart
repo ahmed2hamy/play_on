@@ -22,20 +22,20 @@ class SearchBar extends StatelessWidget {
         ),
         child: TextField(
           controller: searchController,
-          cursorColor: kSecondaryColor,
+          cursorColor: Theme.of(context).colorScheme.secondary,
           decoration: InputDecoration(
-            focusColor: kSecondaryColor,
-            hoverColor: kSecondaryColor,
+            focusColor: Theme.of(context).colorScheme.secondary,
+            hoverColor: Theme.of(context).colorScheme.secondary,
             hintText: Strings.search,
-            prefixIcon: const Icon(
+            prefixIcon: Icon(
               Icons.search,
-              color: kSecondaryColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
             suffixIcon: IconButton(
               onPressed: () {},
-              icon: const Icon(
+              icon: Icon(
                 Icons.close,
-                color: kSecondaryColor,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
             border: InputBorder.none,

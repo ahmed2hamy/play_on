@@ -1,7 +1,8 @@
 part of 'constants.dart';
 
 const Color kPrimaryColor = Color(0xff242C35);
-const Color kSecondaryColor = Color(0xff00CA45);
+const Color kAccentColor = Color(0xff00CA45);
+const Color kErrorColor = Color(0xffEF5350);
 const Color kTeamsScreenBackgroundColor = Color(0xffF2F3F5);
 const Color kTeamCardBackgroundColor = Color(0xff95A4BC);
 const Color kPLayerPositionTextColor = Color(0xff797f86);

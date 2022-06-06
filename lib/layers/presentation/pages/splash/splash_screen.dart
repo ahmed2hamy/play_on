@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
         }
       },
       child: Scaffold(
-        backgroundColor: kPrimaryColor,
+        backgroundColor: Theme.of(context).primaryColor,
         body: Center(
           child: SvgPicture.asset(
             kLogoSvg,

@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:play_on/layers/data/models/players_model.dart';
 import 'package:play_on/layers/domain/entities/team_item.dart';
 
@@ -19,23 +19,23 @@ class TeamsCubit extends Cubit<TeamsState> {
   }
 
   TeamItem _manipulatePlayersLists(int teamNumber, List<Player> players) {
-    final List<Player> _drivers =
+    final List<Player> drivers =
         players.where((e) => e.position == Position.driver).toList();
 
-    final List<Player> _constructors =
+    final List<Player> constructors =
         players.where((e) => e.position == Position.constructor).toList();
 
     List<Player> randomDrivers = List.generate(
       5,
       (_) {
-        Player player = _drivers[Random().nextInt(_drivers.length)];
-        _drivers.remove(player);
+        Player player = drivers[Random().nextInt(drivers.length)];
+        drivers.remove(player);
         return player;
       },
     );
 
     Player randomConstructor =
-        _constructors[Random().nextInt(_constructors.length)];
+        constructors[Random().nextInt(constructors.length)];
 
     TeamItem team = TeamItem(
       teamNumber: teamNumber,

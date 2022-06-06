@@ -12,7 +12,7 @@ class Dialogs {
       duration: Duration(seconds: duration),
     );
 
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     });
   }

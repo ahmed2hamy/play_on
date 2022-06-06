@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:play_on/core/domain/usecases/usecase.dart';
 import 'package:play_on/layers/data/models/players_model.dart';
 import 'package:play_on/layers/domain/use_cases/get_players_use_case.dart';

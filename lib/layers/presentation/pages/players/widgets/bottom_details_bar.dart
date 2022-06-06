@@ -22,7 +22,7 @@ class BottomDetailsBar extends StatelessWidget {
           ),
           const Spacer(),
           const Text(
-            Strings.toPick + ": ",
+            "${Strings.toPick}: ",
             style: kSmallLightWeightTextStyle,
           ),
           const Text(
@@ -36,7 +36,7 @@ class BottomDetailsBar extends StatelessWidget {
             color: kBorderColor,
           ),
           const Text(
-            Strings.average + ": ",
+            "${Strings.average}: ",
             style: kSmallLightWeightTextStyle,
           ),
           const Text(

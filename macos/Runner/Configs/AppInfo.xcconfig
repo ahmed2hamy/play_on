@@ -8,7 +8,7 @@
 PRODUCT_NAME = play_on
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.playOnTask
+PRODUCT_BUNDLE_IDENTIFIER = com.example.playOn
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2021 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2022 com.example. All rights reserved.
